@@ -5,6 +5,11 @@ class Keypad(object):
         self.pad = [[1,2,3],
                     [4,5,6],
                     [7,8,9]]
+        self.pad = [['1'],
+                   ['2','3','4'],
+                   ['5','6','7','8','9']
+                   ['a','b','c']
+                   ['d']]
         self.row = 1
         self.column = 1
 

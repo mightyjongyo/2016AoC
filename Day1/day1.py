@@ -14,6 +14,8 @@ class Me(object):
         self.orientation = Direction()
         self.orientation.facing = Direction.left if 'L' == facing else Direction.right
         self.location = [0,0]
+        self.visited = []
+        self.done = False
 
     def rotate(self, direction):
         if direction == 'L':
@@ -31,13 +33,41 @@ class Me(object):
         distance = an integer representing how many blocks to walk
         """
         if self.orientation.facing == Direction.left:
-            self.location[0] = self.location[0] - distance
+            #self.location[0] = self.location[0] - distance
+            for i in range(distance):
+                self.location[0] = self.location[0] - 1
+                if tuple(self.location) not in self.visited:
+                    self.visited.append(tuple(self.location))
+                else:
+                    print "Location already present:", self.location
+                    #self.done = True
         elif self.orientation.facing == Direction.right:
-            self.location[0] = self.location[0] + distance
+            #self.location[0] = self.location[0] + distance
+            for i in range(distance):
+                self.location[0] = self.location[0] + 1
+                if tuple(self.location) not in self.visited:
+                    self.visited.append(tuple(self.location))
+                else:
+                    print "Location already present:", self.location
+                    #self.done = True
         elif self.orientation.facing == Direction.up:
-            self.location[1] = self.location[1] + distance
+            #self.location[1] = self.location[1] + distance
+            for i in range(distance):
+                self.location[1] = self.location[1] + 1
+                if tuple(self.location) not in self.visited:
+                    self.visited.append(tuple(self.location))
+                else:
+                    print "Location already present:", self.location
+                    #self.done = True
         elif self.orientation.facing == Direction.down:
-            self.location[1] = self.location[1] - distance
+            #self.location[1] = self.location[1] - distance
+            for i in range(distance):
+                self.location[1] = self.location[1] - 1
+                if tuple(self.location) not in self.visited:
+                    self.visited.append(tuple(self.location))
+                else:
+                    print "Location already present:", self.location
+                    #self.done = True
 
 def parse_input():
     """ Returns a list of the directions """
